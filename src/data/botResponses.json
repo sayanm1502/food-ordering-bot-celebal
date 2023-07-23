@@ -1,0 +1,6 @@
+[
+    { "query": "Order meal", "response": "Sure! Please select an item from the menu to order." },
+    { "query": "Cancel meal", "response": "Your order has been canceled." },
+    { "query": "Update meal", "response": "You can now modify your order." },
+    { "query": "Default", "response": "I'm sorry, I don't understand. Please provide a valid instruction." }
+]  

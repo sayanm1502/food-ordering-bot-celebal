@@ -1,24 +1,25 @@
-import logo from './logo.svg';
+// src/App.js
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Import 'Routes' as well
+import LoginPage from './LoginPage';
+import Home from './Home';
 import './App.css';
 
 function App() {
+  const [user, setUser] = useState(null);
+
+  const handleLogin = (username) => {
+    setUser(username);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes> {/* Use the 'Routes' element */}
+          <Route path="/" element={!user ? <LoginPage onLogin={handleLogin} /> : <Home username={user} />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
